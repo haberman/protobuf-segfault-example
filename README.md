@@ -1,7 +1,7 @@
 Steps to reproduce
 ---
 ```
-git clone
+git clone git@github.com:sas5437/protobuf-segfault-example.git
 cd protobuf-segfault-example
 docker build -t 3925:v1 .
 docker run 3925:v1
