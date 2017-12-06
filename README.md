@@ -57,189 +57,152 @@ Program terminated with signal SIGABRT, Aborted.
 Backtrace
 ---
 ```
-#0  0x00007f5559b3878f in __syscall4 (a4=<optimized out>, a3=<optimized out>, a2=<optimized out>,
-    a1=<optimized out>, n=<optimized out>) at ./arch/x86_64/syscall_arch.h:38
-#1  __restore_sigs (set=set@entry=0x559ecaf49a80) at src/signal/block.c:43
-#2  0x00007f5559b388a9 in raise (sig=sig@entry=6) at src/signal/raise.c:13
-#3  0x00007f5559b10f2e in abort () at src/exit/abort.c:9
-#4  0x00007f55596887e1 in die () at error.c:478
-#5  rb_bug_context (ctx=ctx@entry=0x559ecaf49c40, fmt=fmt@entry=0x7f5559837a82 "Segmentation fault at %p")
-    at error.c:508
-#6  0x00007f555977570e in sigsegv (sig=<optimized out>, info=0x559ecaf49d70, ctx=0x559ecaf49c40) at signal.c:907
+#0  0x00007f035642978f in __syscall4 (a4=<optimized out>, a3=<optimized out>, a2=<optimized out>, a1=<optimized out>, n=<optimized out>) at ./arch/x86_64/syscall_arch.h:38
+#1  __restore_sigs (set=set@entry=0x560002d31a80) at src/signal/block.c:43
+#2  0x00007f03564298a9 in raise (sig=sig@entry=6) at src/signal/raise.c:13
+#3  0x00007f0356401f2e in abort () at src/exit/abort.c:9
+#4  0x00007f0355f797e1 in die () at error.c:478
+#5  rb_bug_context (ctx=ctx@entry=0x560002d31c40, fmt=fmt@entry=0x7f0356128a82 "Segmentation fault at %p") at error.c:508
+#6  0x00007f035606670e in sigsegv (sig=<optimized out>, info=0x560002d31d70, ctx=0x560002d31c40) at signal.c:907
 #7  <signal handler called>
 #8  0x00000000000170f6 in ?? ()
-#9  0x00007f55560b3fff in putchecktag ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#10 0x00007f55560b4325 in compile_method ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#11 0x00007f55560b4d63 in mgroup_new ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#12 0x00007f55560b4f65 in upb_pbcodecache_getdecodermethod ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#13 0x00007f55560b4fca in upb_pbdecodermethod_new ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#14 0x00007f5556099b6d in new_fillmsg_decodermethod ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#15 0x00007f5556094125 in build_class_from_descriptor ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#16 0x00007f555608d2c8 in Descriptor_msgclass ()
-   from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
-#17 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb52ae20, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79900, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#18 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79900, calling=<optimized out>, ci=0x559ecb52ae20,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#19 0x00007f55597f7f93 in vm_call_method (th=0x559ec8f39740, cfp=0x7f5559d79900, calling=<optimized out>,
-    ci=<optimized out>, cc=<optimized out>) at vm_insnhelper.c:2308
-#20 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066#21 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#22 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#23 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140503619080,
-    wrap=wrap@entry=0) at load.c:617
-#24 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140503619920, safe=0)
-    at load.c:997
-#25 0x00007f55596d46f9 in rb_require_safe (fname=94140503619920, safe=<optimized out>) at load.c:1042
-#26 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d799c0, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#27 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d799c0, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#28 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#29 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#30 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#31 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140509114080,
-    wrap=wrap@entry=0) at load.c:617
-#32 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140509114240, safe=0)
-    at load.c:997
-#33 0x00007f55596d46f9 in rb_require_safe (fname=94140509114240, safe=<optimized out>) at load.c:1042
-#34 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79a50, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#35 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79a50, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#36 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#37 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#38 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#39 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140509144120,
-    wrap=wrap@entry=0) at load.c:617
-#40 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140509144240, safe=0)
-    at load.c:997
-#41 0x00007f55596d46f9 in rb_require_safe (fname=94140509144240, safe=<optimized out>) at load.c:1042
-#42 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79ae0, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#43 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79ae0, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#44 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#45 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#46 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#47 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140503617320,
-    wrap=wrap@entry=0) at load.c:617
-#48 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140503618080, safe=0)
-    at load.c:997
-#49 0x00007f55596d46f9 in rb_require_safe (fname=94140503618080, safe=<optimized out>) at load.c:1042
-#50 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79b70, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#51 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79b70, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#52 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#53 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#54 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#55 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140503792720,
-    wrap=wrap@entry=0) at load.c:617
-#56 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140503793520, safe=0)
-    at load.c:997
-#57 0x00007f55596d46f9 in rb_require_safe (fname=94140503793520, safe=<optimized out>) at load.c:1042
-#58 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79c00, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#59 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79c00, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#60 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066#61 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#62 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#63 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140506790920,
-    wrap=wrap@entry=0) at load.c:617
-#64 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140506791080, safe=0)
-    at load.c:997
-#65 0x00007f55596d46f9 in rb_require_safe (fname=94140506791080, safe=<optimized out>) at load.c:1042
-#66 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79c90, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#67 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79c90, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#68 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#69 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#70 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#71 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140506848440,
-    wrap=wrap@entry=0) at load.c:617
-#72 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140506838240, safe=0)
-    at load.c:997
-#73 0x00007f55596d46f9 in rb_require_safe (fname=94140506838240, safe=<optimized out>) at load.c:1042
-#74 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79d20, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#75 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79d20, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#76 0x00007f55597f7f93 in vm_call_method (th=0x559ec8f39740, cfp=0x7f5559d79d20, calling=<optimized out>,
-    ci=<optimized out>, cc=<optimized out>) at vm_insnhelper.c:2308
-#77 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#78 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#79 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#80 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140508061200,
-    wrap=wrap@entry=0) at load.c:617
-#81 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140508061320, safe=0)
-    at load.c:997
-#82 0x00007f55596d46f9 in rb_require_safe (fname=94140508061320, safe=<optimized out>) at load.c:1042
-#83 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79db0, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#84 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79db0, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#85 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#86 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#87 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#88 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140508080640,
-    wrap=wrap@entry=0) at load.c:617
-#89 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140508080800, safe=0)
-    at load.c:997
-#90 0x00007f55596d46f9 in rb_require_safe (fname=94140508080800, safe=<optimized out>) at load.c:1042
-#91 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79e40, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#85 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#86 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#87 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#88 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140508080640,
-    wrap=wrap@entry=0) at load.c:617
-#89 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140508080800, safe=0)
-    at load.c:997
-#90 0x00007f55596d46f9 in rb_require_safe (fname=94140508080800, safe=<optimized out>) at load.c:1042
-#91 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79e40, th=0x559ec8f39740) at vm_insnhelper.c:1768
+#9  0x00007f03529a4fff in putchecktag () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#10 0x00007f03529a5325 in compile_method () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#11 0x00007f03529a5d63 in mgroup_new () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#12 0x00007f03529a5f65 in upb_pbcodecache_getdecodermethod () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#13 0x00007f03529a5fca in upb_pbdecodermethod_new () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#14 0x00007f035298ab6d in new_fillmsg_decodermethod () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#15 0x00007f0352985125 in build_class_from_descriptor () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#16 0x00007f035297e2c8 in Descriptor_msgclass () from /usr/local/bundle/gems/google-protobuf-3.5.0-x86_64-linux/lib/google/2.4/protobuf_c.so
+#17 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x560003a917a0, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666a900, th=0x5600016f6740) at vm_insnhelper.c:1768
+#18 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666a900, calling=<optimized out>, ci=0x560003a917a0, cc=<optimized out>) at vm_insnhelper.c:1863
+#19 0x00007f03560e8f93 in vm_call_method (th=0x5600016f6740, cfp=0x7f035666a900, calling=<optimized out>, ci=<optimized out>, cc=<optimized out>) at vm_insnhelper.c:2308
+#20 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#21 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#22 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#23 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558056258720, wrap=wrap@entry=0) at load.c:617
+#24 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558056258880, safe=0) at load.c:997
+#25 0x00007f0355fc56f9 in rb_require_safe (fname=94558056258880, safe=<optimized out>) at load.c:1042
+#26 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666a9c0, th=0x5600016f6740) at vm_insnhelper.c:1768
+#27 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666a9c0, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#28 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#29 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#30 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#31 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558057297760, wrap=wrap@entry=0) at load.c:617
+#32 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558057298720, safe=0) at load.c:997
+#33 0x00007f0355fc56f9 in rb_require_safe (fname=94558057298720, safe=<optimized out>) at load.c:1042
+#34 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666aa50, th=0x5600016f6740) at vm_insnhelper.c:1768
+#35 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666aa50, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#36 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#37 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#38 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#39 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558058019920, wrap=wrap@entry=0) at load.c:617
+#40 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558058020040, safe=0) at load.c:997
+#41 0x00007f0355fc56f9 in rb_require_safe (fname=94558058020040, safe=<optimized out>) at load.c:1042
+#42 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666aae0, th=0x5600016f6740) at vm_insnhelper.c:1768
+#43 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666aae0, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#44 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#45 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#46 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#47 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558052736280, wrap=wrap@entry=0) at load.c:617
+#48 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558052736520, safe=0) at load.c:997
+#49 0x00007f0355fc56f9 in rb_require_safe (fname=94558052736520, safe=<optimized out>) at load.c:1042
+#50 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666ab70, th=0x5600016f6740) at vm_insnhelper.c:1768
+#51 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666ab70, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#52 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#53 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#54 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#55 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558048737360, wrap=wrap@entry=0) at load.c:617
+#56 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558048738000, safe=0) at load.c:997
+#57 0x00007f0355fc56f9 in rb_require_safe (fname=94558048738000, safe=<optimized out>) at load.c:1042
+#58 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666ac00, th=0x5600016f6740) at vm_insnhelper.c:1768
+#59 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666ac00, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#60 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#61 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#62 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#63 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558056032240, wrap=wrap@entry=0) at load.c:617
+#64 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558056032400, safe=0) at load.c:997
+#65 0x00007f0355fc56f9 in rb_require_safe (fname=94558056032400, safe=<optimized out>) at load.c:1042
+#66 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666ac90, th=0x5600016f6740) at vm_insnhelper.c:1768
+#67 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666ac90, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#68 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#69 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#70 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#71 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558056056960, wrap=wrap@entry=0) at load.c:617
+#72 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558056057720, safe=0) at load.c:997
+#73 0x00007f0355fc56f9 in rb_require_safe (fname=94558056057720, safe=<optimized out>) at load.c:1042
+#74 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666ad20, th=0x5600016f6740) at vm_insnhelper.c:1768
+#75 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666ad20, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#76 0x00007f03560e8f93 in vm_call_method (th=0x5600016f6740, cfp=0x7f035666ad20, calling=<optimized out>, ci=<optimized out>, cc=<optimized out>) at vm_insnhelper.c:2308
+#77 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#78 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#79 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#80 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558058010800, wrap=wrap@entry=0) at load.c:617
+#81 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558058010920, safe=0) at load.c:997
+#82 0x00007f0355fc56f9 in rb_require_safe (fname=94558058010920, safe=<optimized out>) at load.c:1042
+#83 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666adb0, th=0x5600016f6740) at vm_insnhelper.c:1768
+#84 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666adb0, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#85 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#86 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#87 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#88 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558058013800, wrap=wrap@entry=0) at load.c:617
+#89 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558058014000, safe=0) at load.c:997
+#90 0x00007f0355fc56f9 in rb_require_safe (fname=94558058014000, safe=<optimized out>) at load.c:1042
+#91 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666ae40, th=0x5600016f6740) at vm_insnhelper.c:1768
+#92 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666ae40, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#93 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#94 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#95 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#96 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558058334200, wrap=wrap@entry=0) at load.c:617
+#97 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558058334320, safe=0) at load.c:997
+#69 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#70 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#71 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558056056960, wrap=wrap@entry=0) at load.c:617
+#72 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558056057720, safe=0) at load.c:997
+#73 0x00007f0355fc56f9 in rb_require_safe (fname=94558056057720, safe=<optimized out>) at load.c:1042
+#74 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666ad20, th=0x5600016f6740) at vm_insnhelper.c:1768
+#75 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666ad20, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#76 0x00007f03560e8f93 in vm_call_method (th=0x5600016f6740, cfp=0x7f035666ad20, calling=<optimized out>, ci=<optimized out>, cc=<optimized out>) at vm_insnhelper.c:2308
+#77 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#78 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#79 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#80 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558058010800, wrap=wrap@entry=0) at load.c:617
+#81 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558058010920, safe=0) at load.c:997
+#82 0x00007f0355fc56f9 in rb_require_safe (fname=94558058010920, safe=<optimized out>) at load.c:1042
+#83 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666adb0, th=0x5600016f6740) at vm_insnhelper.c:1768
+#84 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666adb0, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#85 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#86 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#87 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#88 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558058013800, wrap=wrap@entry=0) at load.c:617
+#89 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558058014000, safe=0) at load.c:997
+#90 0x00007f0355fc56f9 in rb_require_safe (fname=94558058014000, safe=<optimized out>) at load.c:1042
+#91 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666ae40, th=0x5600016f6740) at vm_insnhelper.c:1768
+#92 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666ae40, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#93 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#94 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#95 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#96 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558058334200, wrap=wrap@entry=0) at load.c:617
+#97 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558058334320, safe=0) at load.c:997
 ---Type <return> to continue, or q <return> to quit---
-#92 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79e40, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#93 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#94 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#95 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#96 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140509022400,
-    wrap=wrap@entry=0) at load.c:617
-#97 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140509022520, safe=0)
-    at load.c:997
-#98 0x00007f55596d46f9 in rb_require_safe (fname=94140509022520, safe=<optimized out>) at load.c:1042
-#99 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2c90a0, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79ed0, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#100 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79ed0, calling=<optimized out>, ci=0x559ecb2c90a0,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#101 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#102 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#103 0x00007f55597fad6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
-#104 0x00007f55596d29bf in rb_load_internal0 (th=th@entry=0x559ec8f39740, fname=fname@entry=94140497506400,
-    wrap=wrap@entry=0) at load.c:617
-#105 0x00007f55596d4451 in rb_require_internal (fname=<optimized out>, fname@entry=94140500061160, safe=0)
-    at load.c:997
-#106 0x00007f55596d46f9 in rb_require_safe (fname=94140500061160, safe=<optimized out>) at load.c:1042
-#107 0x00007f55597e8457 in vm_call_cfunc_with_frame (ci=0x559ecb2bec10, cc=<optimized out>,
-    calling=<optimized out>, reg_cfp=0x7f5559d79f60, th=0x559ec8f39740) at vm_insnhelper.c:1768
-#108 vm_call_cfunc (th=0x559ec8f39740, reg_cfp=0x7f5559d79f60, calling=<optimized out>, ci=0x559ecb2bec10,
-    cc=<optimized out>) at vm_insnhelper.c:1863
-#109 0x00007f55597f7f93 in vm_call_method (th=0x559ec8f39740, cfp=0x7f5559d79f60, calling=<optimized out>,
-    ci=<optimized out>, cc=<optimized out>) at vm_insnhelper.c:2308
-#110 0x00007f55597f0ff1 in vm_exec_core (th=th@entry=0x559ec8f39740, initial=initial@entry=0) at insns.def:1066
-#111 0x00007f55597f6601 in vm_exec (th=0x559ec8f39740) at vm.c:1774
-#112 0x00007f55597fae71 in rb_iseq_eval_main (iseq=iseq@entry=0x559ecb109c48) at vm.c:2020
-#113 0x00007f555968e5a0 in ruby_exec_internal (n=0x559ecb109c48) at eval.c:244
-#114 0x00007f555969026d in ruby_exec_node (n=<optimized out>, n@entry=0x559ecb109c48) at eval.c:308
-#115 0x00007f555969314e in ruby_run_node (n=0x559ecb109c48) at eval.c:300
-#116 0x0000559ec8d387cb in main (argc=<optimized out>, argv=<optimized out>) at main.c:36
+#98 0x00007f0355fc56f9 in rb_require_safe (fname=94558058334320, safe=<optimized out>) at load.c:1042
+#99 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030c3580, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666aed0, th=0x5600016f6740) at vm_insnhelper.c:1768
+#100 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666aed0, calling=<optimized out>, ci=0x5600030c3580, cc=<optimized out>) at vm_insnhelper.c:1863
+#101 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#102 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#103 0x00007f03560ebd6b in rb_iseq_eval (iseq=<optimized out>) at vm.c:2009
+#104 0x00007f0355fc39bf in rb_load_internal0 (th=th@entry=0x5600016f6740, fname=fname@entry=94558046659640, wrap=wrap@entry=0) at load.c:617
+#105 0x00007f0355fc5451 in rb_require_internal (fname=<optimized out>, fname@entry=94558049217760, safe=0) at load.c:997
+#106 0x00007f0355fc56f9 in rb_require_safe (fname=94558049217760, safe=<optimized out>) at load.c:1042
+#107 0x00007f03560d9457 in vm_call_cfunc_with_frame (ci=0x5600030be4d0, cc=<optimized out>, calling=<optimized out>, reg_cfp=0x7f035666af60, th=0x5600016f6740) at vm_insnhelper.c:1768
+#108 vm_call_cfunc (th=0x5600016f6740, reg_cfp=0x7f035666af60, calling=<optimized out>, ci=0x5600030be4d0, cc=<optimized out>) at vm_insnhelper.c:1863
+#109 0x00007f03560e8f93 in vm_call_method (th=0x5600016f6740, cfp=0x7f035666af60, calling=<optimized out>, ci=<optimized out>, cc=<optimized out>) at vm_insnhelper.c:2308
+#110 0x00007f03560e1ff1 in vm_exec_core (th=th@entry=0x5600016f6740, initial=initial@entry=0) at insns.def:1066
+#111 0x00007f03560e7601 in vm_exec (th=0x5600016f6740) at vm.c:1774
+#112 0x00007f03560ebe71 in rb_iseq_eval_main (iseq=iseq@entry=0x560002ef1c00) at vm.c:2020
+#113 0x00007f0355f7f5a0 in ruby_exec_internal (n=0x560002ef1c00) at eval.c:244
+#114 0x00007f0355f8126d in ruby_exec_node (n=<optimized out>, n@entry=0x560002ef1c00) at eval.c:308
+#115 0x00007f0355f8414e in ruby_run_node (n=0x560002ef1c00) at eval.c:300
+#116 0x00005600014f57cb in main (argc=<optimized out>, argv=<optimized out>) at main.c:36
+```
 ```
