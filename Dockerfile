@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine3.6
+FROM sickp/alpine-ruby:2.4.2-r1
 
 RUN apk update && apk add musl libc6-compat gdb musl-dbg make gcc musl-dev
 
